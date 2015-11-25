@@ -1,0 +1,122 @@
+// Surface/Component/Button
+
+@import "Button/Config";
+@import "Button/Generator";
+@import "Button/Animation/Busy";
+@import "Button/Animation/MaterialInk";
+
+.button {
+
+  .padding(@button-gutter-gap @button-content-offset);
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  .decimal-unit(text-shadow, rgba(0, 0, 0, 10%) 0 0 @button-corner-roundness);
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  .border-radius(@button-corner-roundness);
+  .elevation(1);
+  .tween(all);
+
+  .material-ink {
+
+    .size(1);
+    .background-color-rgba(slate-500, .4);
+    .fixate(absolute, 0, 0);
+    .border-radius(100%);
+    .scale(0);
+
+  }
+
+  &.touching {}
+
+  &.touched {
+
+    .material-ink {
+
+      .animate(button-animation-material-ink);
+      .animation-duration(@animation-timing-slow);
+
+    }
+
+  }
+
+  // Sizes
+
+  &&--fluid {
+
+    .width(100%);
+
+  }
+
+  &&--tiny {
+
+    .padding((@button-gutter-gap * .75) (@button-content-offset * .75));
+    .font-size-tiny;
+    font-weight: 700;
+
+  }
+
+  &&--small {
+
+    .padding((@button-gutter-gap * .85) (@button-content-offset * .85));
+    .font-size-small;
+    font-weight: 700;
+
+  }
+
+  &&--medium {
+
+    .padding((@button-gutter-gap * 1.1) (@button-content-offset * 1.1));
+    .font-size-medium;
+    font-weight: 500;
+
+  }
+
+  &&--large {
+
+    .padding((@button-gutter-gap * 1.2) (@button-content-offset * 1.2));
+    .font-size-large;
+    font-weight: 400;
+
+  }
+
+  &&--x-large {
+
+    .padding((@button-gutter-gap * 1.3) (@button-content-offset * 1.3));
+    .font-size-x-large;
+    font-weight: 300;
+
+  }
+
+  &&--2x-large {
+
+    .padding((@button-gutter-gap * 1.4) (@button-content-offset * 1.4));
+    .font-size-2x-large;
+    font-weight: 300;
+
+  }
+
+  &&--3x-large {
+
+    .padding((@button-gutter-gap * 1.5) (@button-content-offset * 1.5));
+    .font-size-3x-large;
+    font-weight: 100;
+
+  }
+
+  // Default State
+  @import "Button/State/Default";
+
+  // Action States
+  @import "Button/State/Assertive";   // @swatch-green-500
+  @import "Button/State/Attentive";   // @swatch-amber-500
+  @import "Button/State/Cautious";    // @swatch-deep-orange-500
+  @import "Button/State/Destructive"; // @swatch-ruby-500
+  @import "Button/State/Dismissive";  // @swatch-slate-500
+  @import "Button/State/Generic";     // @swatch-blue-500
+
+}

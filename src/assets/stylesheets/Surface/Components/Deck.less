@@ -1,0 +1,32 @@
+// Surface/Components/Deck
+
+@import "Deck/Config";
+
+.deck {
+
+  &__header {
+
+    .margin-bottom(@deck-header-gap);
+    .padding(@deck-heading-offset);
+
+  }
+
+  &__heading {
+
+    .font-size-large(1);
+    font-weight: 300;
+    .foreground-color(@deck-heading-color);
+    display: block;
+
+  }
+
+  &__subheading {
+
+    .margin-top(@deck-subheading-offset);
+    .font-size-small(1.3);
+    font-weight: 400;
+    .foreground-color(@deck-subheading-color);
+
+  }
+
+}

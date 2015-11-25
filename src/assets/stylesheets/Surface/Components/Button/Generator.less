@@ -1,0 +1,29 @@
+// Surface/Material/Button/Generator
+
+.generate-button(@foreground-color, @background-color-start: 0, @background-color-stop: 0) when not (@background-color-stop = 0) {
+
+  .background-image(linear-gradient(to bottom, @background-color-start, @background-color-stop));
+  color: @foreground-color !important;
+
+}
+
+.generate-button(@foreground-color, @background-color-start: 0, @background-color-stop: 0) when (@background-color-stop = 0) {
+
+  background: @background-color-start;
+  color: @foreground-color !important;
+
+}
+
+.generate-button(@foreground-color, @background-color-start: 0, @background-color-stop: 0) when (@background-color-stop = 1) {
+
+  background: @background-color-start;
+  color: @foreground-color !important;
+
+}
+
+.generate-button(@foreground-color, @background-color-start: 0, @background-color-stop: 0) when (default()) {
+
+  background: none;
+  color: @foreground-color !important;
+
+}

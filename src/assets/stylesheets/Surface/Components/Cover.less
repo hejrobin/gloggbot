@@ -1,0 +1,323 @@
+// Surface/Components/Board
+
+@import "Cover/Config";
+
+.component() {
+
+  .cover {
+
+    .background-size(cover);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    &--primary &__content {
+
+      .padding(@cover-heading-offset);
+
+    }
+
+    &__heading,
+    &__subheading {
+
+      display: block;
+      -ms-word-break: break-all;
+      word-break: break-all;
+      word-break: break-word;
+      -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+
+    }
+
+    &__heading {
+
+      .font-size-5x-large;
+      font-weight: 100;
+
+    }
+
+    &__subheading {
+
+      .font-size-x-large;
+      .font-family-mono;
+      font-weight: 300;
+
+    }
+
+    &__summary {
+
+      .margin(@cover-heading-gap 0);
+      .font-size-medium;
+      font-weight: 300;
+
+    }
+
+    &&--full {
+
+      .min-height(100%);
+
+    }
+
+    &&--prominent {
+
+      .min-height(75%);
+
+    }
+
+    &&--extended {
+
+      .min-height(50%);
+
+    }
+
+    &&__overlay--light {
+
+      .cover__heading,
+      .cover__summary,
+      .cover__byline {
+
+        color: @cover-light-heading-color;
+
+      }
+
+      .cover__subheading {
+
+        color: @cover-light-subheading-color;
+
+        &:before,
+        &:after {
+
+          color: @cover-light-subheading-fade-color;
+
+        }
+
+      }
+
+    }
+
+    &&__overlay--dark {
+
+      .cover__heading,
+      .cover__summary,
+      .cover__byline {
+
+        color: @cover-dark-heading-color;
+
+      }
+
+      .cover__subheading {
+
+        color: @cover-dark-subheading-color;
+
+        &:before,
+        &:after {
+
+          color: @cover-dark-subheading-fade-color;
+
+        }
+
+      }
+
+    }
+
+    &__overlay--gray {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-gray-500, @swatch-gray-700);
+
+    }
+
+    &__overlay--slate {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-slate-500, @swatch-slate-700);
+
+    }
+
+    &__overlay--taupe {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-taupe-500, @swatch-taupe-700);
+
+    }
+
+    &__overlay--red {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-red-500, @swatch-red-700);
+
+    }
+
+    &__overlay--ruby {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-ruby-500, @swatch-ruby-700);
+
+    }
+
+    &__overlay--pink {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-pink-500, @swatch-pink-700);
+
+    }
+
+    &__overlay--purple {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-purple-500, @swatch-purple-700);
+
+    }
+
+    &__overlay--deep-purple {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-deep-purple-500, @swatch-deep-purple-700);
+
+    }
+
+    &__overlay--indigo {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-indigo-500, @swatch-indigo-700);
+
+    }
+
+    &__overlay--blue {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-blue-500, @swatch-blue-700);
+
+    }
+
+    &__overlay--light-blue {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-light-blue-500, @swatch-light-blue-700);
+
+    }
+
+    &__overlay--cyan {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-cyan-500, @swatch-cyan-700);
+
+    }
+
+    &__overlay--teal {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-teal-500, @swatch-teal-700);
+
+    }
+
+    &__overlay--deep-teal {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-deep-teal-500, @swatch-deep-teal-700);
+
+    }
+
+    &__overlay--green {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-green-500, @swatch-green-700);
+
+    }
+
+    &__overlay--light-green {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-light-green-500, @swatch-light-green-700);
+
+    }
+
+    &__overlay--lime {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-lime-500, @swatch-lime-700);
+
+    }
+
+    &__overlay--yellow {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-yellow-500, @swatch-yellow-700);
+
+    }
+
+    &__overlay--amber {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-amber-500, @swatch-amber-700);
+
+    }
+
+    &__overlay--orange {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-orange-500, @swatch-orange-700);
+
+    }
+
+    &__overlay--deep-orange {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-deep-orange-500, @swatch-deep-orange-700);
+
+    }
+
+    &__overlay--brown {
+
+      .background-image-with-overlay(@cover-default-image,  @swatch-brown-500, @swatch-brown-700);
+
+    }
+
+    &__overlay--sunrise {
+
+      .background-image-with-overlay(@cover-default-image, @swatch-deep-orange-600, @swatch-amber-300);
+
+    }
+
+    &__overlay--sunset {
+
+      .background-image-with-overlay(@cover-default-image, @swatch-red-500, @swatch-deep-orange-500);
+
+    }
+
+    &__overlay--nightsky {
+
+      .background-image-with-overlay(@cover-default-image, @swatch-indigo-800, @swatch-slate-700);
+
+    }
+
+  }
+
+}
+
+.small-screen() {
+
+  .cover {
+
+    &__heading {
+
+      .font-size-3x-large;
+
+    }
+
+    &__subheading {
+
+      .font-size-large;
+
+    }
+
+  }
+
+}
+
+.tiny-screen() {
+
+  .cover {
+
+    &__heading {
+
+      .font-size-2x-large;
+
+    }
+
+    &__subheading {
+
+      .font-size-medium;
+
+    }
+
+    &__content {
+
+      position: static;
+      .translateY(0);
+
+    }
+
+  }
+
+}

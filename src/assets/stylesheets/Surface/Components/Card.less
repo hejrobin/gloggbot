@@ -1,0 +1,162 @@
+// Surface/Components/Card
+
+@import "Card/Config";
+@import "Card/Animation/Elevate";
+@import "Card/Animation/MaterialInk";
+
+.card {
+
+  .margin(0 @card-gutter-gap);
+  .margin-bottom(@card-gutter-gap * 2);
+  .padding(@card-content-offset);
+  .background-color(@card-body-color);
+  .border-radius(@card-corner-roundness);
+  .elevation(1);
+  cursor: default;
+  text-decoration: none;
+  display: block;
+
+  &&--ghost {
+
+    .background-color-rgba(@card-body-color, @card-ghost-opacity);
+
+  }
+
+  &&--immaterial,
+  &&--translucent {
+
+    background: none;
+    .border-radius(0);
+    .box-shadow(none);
+
+  }
+
+  &&--immaterial {
+
+    .padding(0);
+
+  }
+
+  &&--segmented {
+
+    .padding(0);
+
+    .segment {
+
+      .padding(@card-content-offset);
+      .box-shadow(inset fade(@swatch-slate-1k, 10%) 0 -.1 0 0);
+
+      &:first-child {
+
+        .border-top-left-radius(.3);
+        .border-top-right-radius(.3);
+
+      }
+
+      &:last-child {
+
+        .border-bottom-left-radius(.3);
+        .border-bottom-right-radius(.3);
+        .box-shadow(none);
+
+      }
+
+    }
+
+  }
+
+  h2,
+  h3,
+  h4,
+  h5 {
+
+    .margin(0 0 (@card-gutter-gap * 1.2) 0);
+    .foreground-color(@card-heading-color);
+
+  }
+
+  h2 {
+
+    .font-size-large;
+    font-weight: 300;
+
+  }
+
+  h3,
+  h4,
+  h5 {
+
+    text-transform: uppercase;
+    .font-size-small;
+    font-weight: 700;
+
+  }
+
+  // Action States
+  @import "Card/State/Assertive";   // @swatch-green-500
+  @import "Card/State/Attentive";   // @swatch-amber-500
+  @import "Card/State/Cautious";    // @swatch-deep-orange-500
+  @import "Card/State/Destructive"; // @swatch-ruby-500
+  @import "Card/State/Dismissive";  // @swatch-slate-500
+  @import "Card/State/Generic";     // @swatch-blue-500
+
+}
+
+.card,
+.segment {
+
+  &&--interactive {
+
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+  }
+
+  .material-ink {
+
+    .size(1);
+    .background-color-rgba(slate-500, .15);
+    .fixate(absolute, 0, 0);
+    .border-radius(100%);
+    .scale(0);
+
+  }
+
+  &.touching {}
+
+  &.touched {
+
+    .material-ink {
+
+      .animate(card-animation-material-ink);
+      .animation-duration(@animation-timing-slow);
+
+    }
+
+  }
+
+}
+
+.card {
+
+  &.touching {}
+
+  &.touched {
+
+    .animate(card-animation-elevate);
+
+  }
+
+}
+
+.segment {
+
+  &&--has-media {
+
+    background-position: 50% 50%;
+    background-size: cover;
+
+  }
+
+}

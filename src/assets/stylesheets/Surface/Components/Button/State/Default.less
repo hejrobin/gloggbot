@@ -1,0 +1,112 @@
+.generate-button(@swatch-slate-700, @swatch-base-white, @swatch-slate-50);
+
+&:hover {
+
+  .generate-button(@swatch-slate-900, @swatch-base-white, @swatch-slate-50);
+  .elevation(@button-elevation);
+
+}
+
+&&--flat {
+
+  .generate-button(@swatch-slate-700, @swatch-slate-50);
+
+}
+
+&&--ghost {
+
+  .generate-button(@swatch-slate-700, fade(@swatch-slate-500, 10%));
+
+  &:hover {
+
+    .generate-button(@swatch-slate-900, fade(@swatch-slate-500, 14%));
+
+  }
+
+}
+
+&&--translucent {
+
+  .generate-button(@swatch-slate-700);
+
+  &:hover {
+
+    .generate-button(@swatch-slate-900, fade(@swatch-slate-500, 7%));
+
+  }
+
+}
+
+&&--disabled {
+
+  cursor: not-allowed;
+
+  &, &:hover {
+
+    .generate-button(@swatch-slate-200, fade(@swatch-slate-500, 8%));
+
+  }
+
+}
+
+&&--ghost,
+&&--translucent,
+&&--disabled {
+
+  .box-shadow(none);
+
+  &:hover {
+
+    .box-shadow(none);
+
+  }
+
+}
+
+&&--flat {
+
+  .box-shadow(none);
+
+  &:hover {
+
+    .elevation(@button-elevation);
+
+  }
+
+}
+
+// State: Busy
+
+&&--busy {
+
+  cursor: wait;
+  text-shadow: none !important;
+
+  &, &:hover {
+
+    .generate-button(transparent, fade(@swatch-slate-500, 7%)) !important;
+    .box-shadow(none) !important;
+
+  }
+
+  &:after {
+
+    @size: 2.4;
+    @weight: .2;
+    @gutter-color: fade(@swatch-slate-500, 20%);
+    @indicator-color: @swatch-slate-500;
+    @offset: (@size + @weight) * .5;
+
+    .margin(-@offset 0 0 -@offset);
+    .size(@size);
+    .fixate(absolute, 50%, 50%);
+    content: '';
+    .border-radius(@size);
+    .border(@gutter-color @weight solid);
+    border-top-color: @indicator-color;
+    .animate(button-animation-busy, @animation-timing-slow, linear);
+    .animation-iteration-count(infinite);
+
+  }
+
+}

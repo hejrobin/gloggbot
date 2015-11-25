@@ -1,0 +1,104 @@
+// Surface/Component/Button/State/Attentive
+
+&&--attentive {
+
+  @base-color-start:  @swatch-amber-400;
+  @base-color-end:    @swatch-amber-500;
+  @base-color-text:   @swatch-amber-50;
+  @bright-color:      @swatch-amber-200;
+  @dark-color:        @swatch-amber-800;
+
+  .generate-button(@base-color-text, @base-color-start, @base-color-end);
+
+  &:hover {
+
+    .generate-button(@swatch-base-white, @base-color-start, @base-color-end);
+
+  }
+
+  .material-ink {
+
+    background-color: fade(@dark-color, 50%);
+
+  }
+
+  &.button {
+
+    &--busy {
+
+      &, &:hover {
+
+        .generate-button(transparent, fade(@base-color-start, 7%)) !important;
+
+      }
+
+      &:after {
+
+        border-color: fade(@base-color-start, 20%);
+        border-top-color: @base-color-start;
+
+      }
+
+    }
+
+    &--flat {
+
+      .generate-button(@base-color-text, @base-color-end);
+
+      &:hover {
+
+        .generate-button(@swatch-base-white, @base-color-end);
+
+      }
+
+    }
+
+    &--busy,
+    &--ghost,
+    &--translucent {
+
+      .material-ink {
+
+        background-color: fade(@dark-color, 20%);
+
+      }
+
+    }
+
+    &--ghost {
+
+      .generate-button(@base-color-start, fade(@base-color-start, 10%));
+
+      &:hover {
+
+        .generate-button(@dark-color, fade(@base-color-start, 14%));
+
+      }
+
+    }
+
+    &--translucent {
+
+      .generate-button(@base-color-start);
+
+      &:hover {
+
+        .generate-button(@dark-color, fade(@base-color-start, 7%));
+
+      }
+
+    }
+
+    &--disabled {
+
+      &, &:hover {
+
+        .generate-button(@bright-color, fade(@base-color-start, 8%));
+
+      }
+
+    }
+
+  }
+
+}

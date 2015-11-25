@@ -1,0 +1,58 @@
+// Surface/Foundation/AspectRatio
+
+.aspect {
+
+  position: relative;
+  display: inline-block;
+
+  &:before {
+
+    content: '';
+    display: block;
+
+  }
+
+  &&--1-1:before {
+
+    .padding-top(100%);
+
+  }
+
+  &&--2-1:before {
+
+    .padding-top(50%);
+
+  }
+
+  &&--3-2:before {
+
+    .padding-top(66.66%);
+
+  }
+
+  &&--4-3:before {
+
+    .padding-top(75%);
+
+  }
+
+  &&--7-8:before {
+
+    .padding-top(112.5%);
+
+  }
+
+  &&--16-9:before {
+
+    .padding-top(56.25%);
+
+  }
+
+  &__container {
+
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+
+  }
+
+}
